@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ModelDemoController;
+use App\Http\Controllers\HomelandController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,8 +20,12 @@ Route::get('/usuario/{nombre?}', function (string $name = "Pepe") {
 });
 
 // Rutas con controladores
-Route::get('/site_controller', [SiteController::class, 'index']);
+# Route::get('/model_demo', [ModelDemoController, 'index']);
 
-
-// Rutas con controladores
-Route::get('/model_demo', [ModelDemoController::class, 'index']);
+Route::get('/', [HomelandController::class, 'index']);
+Route::get('/buy', [HomelandController::class, 'buy']);
+Route::get('/rent', [HomelandController::class, 'rent']);
+Route::get('/login', [HomelandController::class, 'login']);
+Route::get('/about', [HomelandController::class, 'about']);
+Route::get('/site/contact', [HomelandController::class, 'contact']);
+Route::get('/properties/{property_type_id}', [HomelandController::class, 'properties/{property_type_id}']);

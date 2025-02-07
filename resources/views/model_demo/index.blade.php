@@ -7,8 +7,8 @@
 <body>
     <h1>Modelos Demos</h1>
     <ul>
-        @foreach ($modelo_demos as $usuario)
-            <li>Nombre: {{ $usuario->nombre }}</li>
+        @foreach ($modelo_demos as $modelo)
+            <li>Nombre: {{ $modelo->nombre }}</li>
         @endforeach
     </ul>
 </body>
