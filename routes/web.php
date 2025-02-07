@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\ModelDemoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,3 +20,7 @@ Route::get('/usuario/{nombre?}', function (string $name = "Pepe") {
 
 // Rutas con controladores
 Route::get('/site_controller', [SiteController::class, 'index']);
+
+
+// Rutas con controladores
+Route::get('/model_demo', [ModelDemoController::class, 'index']);
