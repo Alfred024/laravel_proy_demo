@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('property_listing_type', function (Blueprint $table) {
-            $table->id('property_listing_type_id');
-            $table->string('name',100);
-            $table->timestamps();
+        Schema::table('properties', function (Blueprint $table) {
+            $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
+            $table->Integer('postal_code');
         });
     }
 
@@ -23,6 +22,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('property_listing_type');
+        Schema::dropColumn('city_id');
+        Schema::dropColumn('postal_code');
     }
 };

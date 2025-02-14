@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class HomelandController extends Controller
 {
     public function index(){
-        return view('homeland.index');
+        $properties = Property::all();
+        return view('homeland.index', compact('properties'));
     }
 
     public function buy(){
@@ -36,5 +38,10 @@ class HomelandController extends Controller
 
     public function register(){
         return view('homeland.register');
+    }
+
+    public function property_details($property_id){
+        # $property =
+        return view('homeland.property-details');
     }
 }
