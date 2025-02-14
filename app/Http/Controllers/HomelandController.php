@@ -40,8 +40,8 @@ class HomelandController extends Controller
         return view('homeland.register');
     }
 
-    public function property_details($property_id){
-        # $property =
-        return view('homeland.property-details');
+    public function property_details($property_detail_id){
+        $property = Property::find($property_detail_id);
+        return view('homeland.property-details', compact('property'));
     }
 }
