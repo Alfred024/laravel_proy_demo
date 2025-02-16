@@ -12,7 +12,8 @@ class Property extends Model
     use HasFactory;
 
     public function list_type(): BelongsTo{
-        return $this->belongsTo(PropertyListingType::class,'property_listing_type_id');
+        // return $this->belongsTo(PropertyListingType::class, 'property_listing_type_id');
+        return $this->belongsTo(PropertyListingType::class, 'property_listing_type_id', 'property_listing_type_id');
     }
 
     public function city(): BelongsTo{

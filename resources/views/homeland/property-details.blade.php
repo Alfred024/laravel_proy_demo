@@ -55,17 +55,21 @@
                             </div>
                         </div>
                         <div class="row mb-5">
-                            <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                            <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
                                 <span class="d-inline-block text-black mb-0 caption-text">Home Type</span>
-                                <strong class="d-block">Condo</strong>
+                                <strong class="d-block">{{$property->list_type->name}}</strong>
                             </div>
-                            <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                            <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
                                 <span class="d-inline-block text-black mb-0 caption-text">Year Built</span>
                                 <strong class="d-block">{{$property->year_built}}</strong>
                             </div>
-                            <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
+                            <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
                                 <span class="d-inline-block text-black mb-0 caption-text">Price/Sqft</span>
                                 <strong class="d-block">{{$property->getPriceBySquareFeet()}}</strong>
+                            </div>
+                            <div class="col-md-6 col-lg-3 text-center border-bottom border-top py-3">
+                                <span class="d-inline-block text-black mb-0 caption-text">City</span>
+                                <strong class="d-block">{{$property->city->name}}</strong>
                             </div>
                         </div>
                         <h2 class="h4 text-black">More Info</h2>
