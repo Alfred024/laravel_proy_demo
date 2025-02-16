@@ -40,7 +40,7 @@
         <div class="container py-1">
           <div class="row align-items-center">
             <div class="col-8 col-md-8 col-lg-4">
-              <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0"><strong>Homeland Layout Page<span class="text-danger">.</span></strong></a></h1>
+              <h1 class="mb-0"><a href="/" class="text-white h2 mb-0"><strong>Homeland Layout Page<span class="text-danger">.</span></strong></a></h1>
             </div>
             <div class="col-4 col-md-4 col-lg-8">
               <nav class="site-navigation text-right text-md-right" role="navigation">
@@ -76,7 +76,22 @@
 
     <div class="slide-one-item home-slider owl-carousel">
 
-      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+        {{-- @foreach ($properties as $propertyObject)
+            <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center text-center">
+                    <div class="col-md-10">
+                        <span class="d-inline-block bg-success text-white px-3 mb-3 property-offer-type rounded"> {{$propertyObject->offer_type}} </span>
+                        <h1 class="mb-2">{{$propertyObject->address}}</h1>
+                        <p class="mb-5"><strong class="h2 text-success font-weight-bold">${{$propertyObject->price}}</strong></p>
+                        <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 btn-2">See Details</a></p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach --}}
+
+      <div class="site-blocks-cover overlay" style="background-image: url({{asset('images/hero_bg_1.jpg)')}};" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-10">
@@ -89,7 +104,7 @@
         </div>
       </div>
 
-      <div class="site-blocks-cover overlay" style="background-image: url(images/hero_bg_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="site-blocks-cover overlay" style="background-image: url({{asset('images/hero_bg_2.jpg)')}};" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-10">

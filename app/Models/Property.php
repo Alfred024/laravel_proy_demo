@@ -25,6 +25,5 @@ class Property extends Model
 
     public function getPriceBySquareFeet(){
         return Number::currency($this->price / $this->sq_ft);
-
     }
 }

@@ -1,15 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Property;
 use Illuminate\Http\Request;
+// MODELS
+use App\Models\City;
+use App\Models\Property;
+use App\Models\PropertyListingType;
 
 class HomelandController extends Controller
 {
     public function index(){
+        $cities = City::all();
         $properties = Property::all();
-        return view('homeland.index', compact('properties'));
+        $propertiesTypes = PropertyListingType::all();
+
+        return view('homeland.index', compact('properties', 'propertiesTypes', 'cities'));
     }
 
     public function buy(){

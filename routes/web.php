@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
-use App\Http\Controllers\ModelDemoController;
 use App\Http\Controllers\HomelandController;
 use App\Http\Controllers\ServiceController;
 
@@ -16,6 +15,4 @@ Route::get('/about', [HomelandController::class, 'about'])->name('about');
 Route::get('/contact', [HomelandController::class, 'contact'])->name('contact');
 Route::get('/login', [HomelandController::class, 'login'])->name('login');
 Route::get('/register', [HomelandController::class, 'register'])->name('register');
-Route::get('/cities', [ServiceController::class, 'cities']);
-Route::get('/services', [ServiceController::class, 'index']);
 Route::get('/property-details/{property_detail_id}', [HomelandController::class, 'property_details'])->name('property-details');

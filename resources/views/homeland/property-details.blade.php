@@ -1,17 +1,17 @@
 @extends('layouts.homeland')
 @section('content')
-    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/hero_bg_2.jpg);"
+    {{-- <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/hero_bg_2.jpg);"
         data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-md-10">
                     <span class="d-inline-block text-white px-3 mb-3 property-offer-type rounded">Property Details of</span>
                     <h1 class="mb-2">{{$property->address}}</h1>
-                    <p class="mb-5"><strong class="h2 text-success font-weight-bold">$1,000,500</strong></p>
+                    <p class="mb-5"><strong class="h2 text-success font-weight-bold">${{$property->price}}</strong></p>
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="site-section site-section-sm">
         <div class="container">
@@ -19,31 +19,36 @@
                 <div class="col-lg-8">
                     <div>
                         <div class="slide-one-item home-slider owl-carousel">
-                            <div><img src="images/hero_bg_1.jpg" alt="Image" class="img-fluid"></div>
-                            <div><img src="images/hero_bg_2.jpg" alt="Image" class="img-fluid"></div>
-                            <div><img src="images/hero_bg_3.jpg" alt="Image" class="img-fluid"></div>
+                            @foreach (json_decode($property->images) as $img)
+                                @if ($loop->first)
+                                    <div>
+                                        <img src="{{asset('images')}}/{{$img}}" alt="Image" class="img-fluid">
+                                    </div>
+                                    @break
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <div class="bg-white property-body border-bottom border-left border-right">
                         <div class="row mb-5">
                             <div class="col-md-6">
-                                <strong class="text-success h1 mb-3">$1,000,500</strong>
+                                <strong class="text-success h1 mb-3">{{$property->getPriceAsCurrency()}}</strong>
                             </div>
                             <div class="col-md-6">
                                 <ul class="property-specs-wrap mb-3 mb-lg-0  float-lg-right">
                                     <li>
                                         <span class="property-specs">Beds</span>
-                                        <span class="property-specs-number">2 <sup>+</sup></span>
+                                        <span class="property-specs-number">{{$property->bedrooms}}<sup>+</sup></span>
 
                                     </li>
                                     <li>
                                         <span class="property-specs">Baths</span>
-                                        <span class="property-specs-number">2</span>
+                                        <span class="property-specs-number">{{$property->bathrooms}}</span>
 
                                     </li>
                                     <li>
                                         <span class="property-specs">SQ FT</span>
-                                        <span class="property-specs-number">7,000</span>
+                                        <span class="property-specs-number">{{$property->sq_ft}}</span>
 
                                     </li>
                                 </ul>
@@ -56,76 +61,28 @@
                             </div>
                             <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
                                 <span class="d-inline-block text-black mb-0 caption-text">Year Built</span>
-                                <strong class="d-block">2018</strong>
+                                <strong class="d-block">{{$property->year_built}}</strong>
                             </div>
                             <div class="col-md-6 col-lg-4 text-center border-bottom border-top py-3">
                                 <span class="d-inline-block text-black mb-0 caption-text">Price/Sqft</span>
-                                <strong class="d-block">$520</strong>
+                                <strong class="d-block">{{$property->getPriceBySquareFeet()}}</strong>
                             </div>
                         </div>
                         <h2 class="h4 text-black">More Info</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aperiam perferendis deleniti
-                            vitae asperiores accusamus tempora facilis sapiente, quas! Quos asperiores alias fugiat sunt
-                            tempora molestias quo deserunt similique sequi.</p>
-                        <p>Nisi voluptatum error ipsum repudiandae, autem deleniti, velit dolorem enim quaerat rerum
-                            incidunt sed, qui ducimus! Tempora architecto non, eligendi vitae dolorem laudantium dolore
-                            blanditiis assumenda in eos hic unde.</p>
-                        <p>Voluptatum debitis cupiditate vero tempora error fugit aspernatur sint veniam laboriosam eaque
-                            eum, et hic odio quibusdam molestias corporis dicta! Beatae id magni, laudantium nulla iure ea
-                            sunt aliquam. A.</p>
+                        <p>{{$property->description}}</p>
 
                         <div class="row no-gutters mt-5">
                             <div class="col-12">
                                 <h2 class="h4 text-black mb-3">Gallery</h2>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_1.jpg" class="image-popup gal-item"><img src="images/img_1.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_2.jpg" class="image-popup gal-item"><img src="images/img_2.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_3.jpg" class="image-popup gal-item"><img src="images/img_3.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_4.jpg" class="image-popup gal-item"><img src="images/img_4.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_5.jpg" class="image-popup gal-item"><img src="images/img_5.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_6.jpg" class="image-popup gal-item"><img src="images/img_6.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_7.jpg" class="image-popup gal-item"><img src="images/img_7.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_8.jpg" class="image-popup gal-item"><img src="images/img_8.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_1.jpg" class="image-popup gal-item"><img src="images/img_1.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_2.jpg" class="image-popup gal-item"><img src="images/img_2.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_3.jpg" class="image-popup gal-item"><img src="images/img_3.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3">
-                                <a href="images/img_4.jpg" class="image-popup gal-item"><img src="images/img_4.jpg"
-                                        alt="Image" class="img-fluid"></a>
-                            </div>
+                            @foreach (json_decode($property->images) as $image)
+                                @if ($loop->first)
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
+                                        <a href="images/img_1.jpg" class="image-popup gal-item"><img src="{{asset('images')}}/{{$image}}"
+                                                alt="Image" class="img-fluid"></a>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

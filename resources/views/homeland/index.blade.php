@@ -7,13 +7,13 @@
             <form class="form-search col-md-12" style="margin-top: -100px;">
                 <div class="row  align-items-end">
                     <div class="col-md-3">
-                        <label for="list-types">Listing Types2</label>
+                        <label for="list-types">Listing Types</label>
                         <div class="select-wrap">
                             <span class="icon icon-arrow_drop_down"></span>
                             <select name="list-types" id="list-types" class="form-control d-block rounded-0">
-                                <option value="">Condo</option>
-                                <option value="">Commercial Building</option>
-                                <option value="">Land Property</option>
+                                @foreach ($propertiesTypes as $type)
+                                    <option value="">{{$type->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -33,11 +33,9 @@
                         <div class="select-wrap">
                             <span class="icon icon-arrow_drop_down"></span>
                             <select name="select-city" id="select-city" class="form-control d-block rounded-0">
-                                <option value="">New York</option>
-                                <option value="">Brooklyn</option>
-                                <option value="">London</option>
-                                <option value="">Japan</option>
-                                <option value="">Philippines</option>
+                                @foreach ($cities as $city)
+                                    <option value="">{{$city->name}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -102,24 +100,23 @@
                         </a>
                         <div class="p-4 property-body">
                             <a href="#" class="property-favorite"><span class="icon-heart-o"></span></a>
-                            <h2 class="property-title"><a href="property-details.html">625 S. Berendo St</a></h2>
-                            <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span> 625
-                                S. Berendo St Unit 607 Los Angeles, CA 90005</span>
-                            <strong class="property-price text-primary mb-3 d-block text-success">$2,265,500</strong>
+                            <h2 class="property-title"><a href="property-details.html">{{$propertyObj->address}}</a></h2>
+                            <span class="property-location d-block mb-3"><span class="property-icon icon-room"></span>{{$propertyObj->description}}</span>
+                            <strong class="property-price text-primary mb-3 d-block text-success">${{ number_format($propertyObj->price, 2, '.', ',') }}</strong>
                             <ul class="property-specs-wrap mb-3 mb-lg-0">
                                 <li>
                                     <span class="property-specs">Beds</span>
-                                    <span class="property-specs-number">2 <sup>+</sup></span>
+                                    <span class="property-specs-number">{{$propertyObj->bedrooms}} <sup>+</sup></span>
 
                                 </li>
                                 <li>
                                     <span class="property-specs">Baths</span>
-                                    <span class="property-specs-number">2</span>
+                                    <span class="property-specs-number">{{$propertyObj->bathrooms}}</span>
 
                                 </li>
                                 <li>
                                     <span class="property-specs">SQ FT</span>
-                                    <span class="property-specs-number">7,000</span>
+                                    <span class="property-specs-number">{{$propertyObj->sq_ft}}</span>
 
                                 </li>
                             </ul>
@@ -179,49 +176,7 @@
     </div>
 </div>
 
-<!-- <div class="site-section bg-light">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-md-7 text-center">
-          <div class="site-section-title">
-            <h2>Recent Blog</h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis maiores quisquam saepe architecto error corporis aliquam. Cum ipsam a consectetur aut sunt sint animi, pariatur corporis, eaque, deleniti cupiditate officia.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
-          <a href="#"><img src="images/img_4.jpg" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="#">Art Gossip by Mike Charles</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
-          <a href="#"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="#">Art Gossip by Mike Charles</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="300">
-          <a href="#"><img src="images/img_3.jpg" alt="Image" class="img-fluid"></a>
-          <div class="p-4 bg-white">
-            <span class="d-block text-secondary small text-uppercase">Jan 20th, 2019</span>
-            <h2 class="h5 text-black mb-3"><a href="#">Art Gossip by Mike Charles</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias enim, ipsa exercitationem veniam quae sunt.</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div> -->
-
-
-<div class="site-section bg-light">
+  <div class="site-section bg-light">
     <div class="container">
         <div class="row mb-5 justify-content-center">
             <div class="col-md-7">
