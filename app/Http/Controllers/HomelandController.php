@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // MODELS
 use App\Models\City;
+use App\Models\ContactAgent;
 use App\Models\Property;
 use App\Models\PropertyListingType;
 
@@ -45,7 +46,18 @@ class HomelandController extends Controller
         return view('homeland.register');
     }
 
-    public function property_details($property_detail_id){
+    public function property_details(Request $request, $property_detail_id){
+
+        if($request->isMethod('POST')){
+            $contact = new ContactAgent();
+            $contact->name = $request->input("name");
+            $contact->email = $request->input("email");
+            $contact->phone = $request->input("phone");
+            $contact->message = $request->input("message");
+            $contact->save();
+            session()->now('response', 'ContactAgent created succesfully!!');
+        }
+
         $property = Property::find($property_detail_id);
         return view('homeland.property-details', compact('property'));
     }

@@ -95,21 +95,28 @@
                     <div class="bg-white widget border rounded">
 
                         <h3 class="h4 text-black widget-title mb-3">Contact Agent</h3>
-                        <form action="" class="form-contact-agent">
+                        <form action="" method="POST" class="form-contact-agent">
+                            @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" id="name" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control">
+                                <input type="email" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" id="phone" class="form-control">
+                                <input type="text" name="phone" id="phone" class="form-control">
                             </div>
+
                             <div class="form-group">
-                                <input type="submit" id="phone" class="btn btn-primary" value="Send Message">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" rows="5" class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="Send Message">
                             </div>
                         </form>
                     </div>
