@@ -95,6 +95,21 @@
                     <div class="bg-white widget border rounded">
 
                         <h3 class="h4 text-black widget-title mb-3">Contact Agent</h3>
+                        @if(session()->has('response'))
+                            <div class="alert alert-success">
+                                {{ session()->get('response') }}
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form action="" method="POST" class="form-contact-agent">
                             @csrf
                             <div class="form-group">
@@ -114,6 +129,8 @@
                                 <label for="message">Message</label>
                                 <textarea name="message" id="message" rows="5" class="form-control"></textarea>
                             </div>
+
+                            <input name="id_property" type="hidden" value="{{$property->id}}">
 
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Send Message">

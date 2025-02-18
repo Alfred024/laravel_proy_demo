@@ -54,8 +54,9 @@ class HomelandController extends Controller
             $contact->email = $request->input("email");
             $contact->phone = $request->input("phone");
             $contact->message = $request->input("message");
+            $contact->property_id = $request->input("id_property");
             $contact->save();
-            session()->now('response', 'ContactAgent created succesfully!!');
+            session()->now('response', 'Message sended succesfully!!');
         }
 
         $property = Property::find($property_detail_id);
