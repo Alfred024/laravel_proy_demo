@@ -11,9 +11,9 @@
                         <div class="select-wrap">
                             <span class="icon icon-arrow_drop_down"></span>
                             <select name="list-types" id="list-types" class="form-control d-block rounded-0">
-                                @foreach ($propertiesTypes as $type)
+                                {{-- @foreach ($propertiesTypes as $type)
                                     <option value="">{{$type->name}}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>
@@ -33,9 +33,9 @@
                         <div class="select-wrap">
                             <span class="icon icon-arrow_drop_down"></span>
                             <select name="select-city" id="select-city" class="form-control d-block rounded-0">
-                                @foreach ($cities as $city)
+                                {{-- @foreach ($cities as $city)
                                     <option value="">{{$city->name}}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                     </div>

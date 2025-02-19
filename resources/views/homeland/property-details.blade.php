@@ -114,20 +114,22 @@
                             @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" id="name" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" id="email" class="form-control">
+                                <input type="email" name="email" id="email" class="form-control" value="{{old('email')}}">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" name="phone" id="phone" class="form-control">
+                                <input type="text" name="phone" id="phone" class="form-control" value="{{old('phone')}}">
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea name="message" id="message" rows="5" class="form-control"></textarea>
+                                <textarea name="message" id="message" rows="5" class="form-control">
+                                    {{old('message')}}
+                                </textarea>
                             </div>
 
                             <input name="id_property" type="hidden" value="{{$property->id}}">

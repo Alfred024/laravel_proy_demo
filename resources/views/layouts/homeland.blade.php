@@ -54,10 +54,12 @@
                   <li class="has-children">
                     <a href="/properties">Properties</a>
                     <ul class="dropdown arrow-top">
-                      <li><a href="/properties/condo">Condo</a></li>
-                      <li><a href="/properties/property_land">Property Land</a></li>
-                      <li><a href="/properties/condo">Commercial Building</a></li>
-
+                        {{-- @foreach ($propertiesTypes as $type)
+                            <li><a href="/properties/{{$type->property_listing_type_id}}">{{$type->name}}</a></li>
+                        @endforeach --}}
+                      <li><a href="{{route('properties_listing_type', 1)}}/">Condominio</a></li>
+                      <li><a href="{{route('properties_listing_type', 3)}}/">Propiedad privada</a></li>
+                      <li><a href="{{route('properties_listing_type', 2)}}/">Contruccion comercial</a></li>
                     </ul>
                   </li>
                   <li><a href="/about">About</a></li>
